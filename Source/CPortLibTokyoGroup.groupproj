@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D4DCC74B-FE3A-4CDA-9CED-C8F090ADB5D7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CPortLibDTokyo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DsgnCPortDTokyo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CPortLibDTokyo">
+        <MSBuild Projects="CPortLibDTokyo.dproj"/>
+    </Target>
+    <Target Name="CPortLibDTokyo:Clean">
+        <MSBuild Projects="CPortLibDTokyo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPortLibDTokyo:Make">
+        <MSBuild Projects="CPortLibDTokyo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DsgnCPortDTokyo">
+        <MSBuild Projects="DsgnCPortDTokyo.dproj"/>
+    </Target>
+    <Target Name="DsgnCPortDTokyo:Clean">
+        <MSBuild Projects="DsgnCPortDTokyo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DsgnCPortDTokyo:Make">
+        <MSBuild Projects="DsgnCPortDTokyo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CPortLibDTokyo;DsgnCPortDTokyo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CPortLibDTokyo:Clean;DsgnCPortDTokyo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CPortLibDTokyo:Make;DsgnCPortDTokyo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
