@@ -68,3 +68,6 @@ __recovery/
 .doit.db.dat
 .doit.db.dir
 *.log
+
+# DevExpress skin package settings file
+*.skincfg
