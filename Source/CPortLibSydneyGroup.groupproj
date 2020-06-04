@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D4DCC74B-FE3A-4CDA-9CED-C8F090ADB5D7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CPortLibDSydney.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DsgnCPortDSydney.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CPortLibDSydney">
+        <MSBuild Projects="CPortLibDSydney.dproj"/>
+    </Target>
+    <Target Name="CPortLibDSydney:Clean">
+        <MSBuild Projects="CPortLibDSydney.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPortLibDSydney:Make">
+        <MSBuild Projects="CPortLibDSydney.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DsgnCPortDSydney">
+        <MSBuild Projects="DsgnCPortDSydney.dproj"/>
+    </Target>
+    <Target Name="DsgnCPortDSydney:Clean">
+        <MSBuild Projects="DsgnCPortDSydney.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DsgnCPortDSydney:Make">
+        <MSBuild Projects="DsgnCPortDSydney.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CPortLibDSydney;DsgnCPortDSydney"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CPortLibDSydney:Clean;DsgnCPortDSydney:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CPortLibDSydney:Make;DsgnCPortDSydney:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

@@ -151,7 +151,7 @@ end;
 
 procedure TComPortEditor.Edit;
 begin
-  (Component as TCustomComPort).ShowSetupDialog;
+  EditComPort(Component as TCustomComPort);
   Designer.Modified;
 end;
 

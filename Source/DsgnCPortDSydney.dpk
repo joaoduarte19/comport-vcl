@@ -1,4 +1,4 @@
-package DsgnCPortDRio;
+package DsgnCPortDSydney;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -32,7 +32,7 @@ package DsgnCPortDRio;
 requires
   vcl,
   designide,
-  CPortLibDRio;
+  CPortLibDSydney;
 
 contains
   CPortReg in 'CPortReg.pas',

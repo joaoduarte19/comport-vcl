@@ -1,6 +1,7 @@
-package DsgnCPortDRio;
+package CPortLibDSydney;
 
 {$R *.res}
+{$R *.otares}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
@@ -26,17 +27,19 @@ package DsgnCPortDRio;
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'ComPort Library'}
-{$DESIGNONLY}
+{$RUNONLY}
 {$IMPLICITBUILD OFF}
 
 requires
   vcl,
-  designide,
-  CPortLibDRio;
+  rtl,
+  vclx;
 
 contains
-  CPortReg in 'CPortReg.pas',
-  CPortAbout in 'CPortAbout.pas' {AboutBox};
+  CPort in 'CPort.pas',
+  CPortSetup in 'CPortSetup.pas' {ComSetupFrm},
+  CPortCtl in 'CPortCtl.pas',
+  CPortEsc in 'CPortEsc.pas',
+  CPortTrmSet in 'CPortTrmSet.pas' {ComTrmSetForm};
 
 end.
-
