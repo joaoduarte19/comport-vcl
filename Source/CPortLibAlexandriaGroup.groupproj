@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D4DCC74B-FE3A-4CDA-9CED-C8F090ADB5D7}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="CPortLibDAlexandria.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="DsgnCPortDAlexandria.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CPortLibDAlexandria">
+        <MSBuild Projects="CPortLibDAlexandria.dproj"/>
+    </Target>
+    <Target Name="CPortLibDAlexandria:Clean">
+        <MSBuild Projects="CPortLibDAlexandria.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CPortLibDAlexandria:Make">
+        <MSBuild Projects="CPortLibDAlexandria.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DsgnCPortDAlexandria">
+        <MSBuild Projects="DsgnCPortDAlexandria.dproj"/>
+    </Target>
+    <Target Name="DsgnCPortDAlexandria:Clean">
+        <MSBuild Projects="DsgnCPortDAlexandria.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DsgnCPortDAlexandria:Make">
+        <MSBuild Projects="DsgnCPortDAlexandria.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CPortLibDAlexandria;DsgnCPortDAlexandria"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CPortLibDAlexandria:Clean;DsgnCPortDAlexandria:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CPortLibDAlexandria:Make;DsgnCPortDAlexandria:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
